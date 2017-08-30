@@ -14,10 +14,10 @@ void printUniqueWords3(string filename);
 void printUniqueWords4(string filename);
 
 int main() {
-    string filename = "test.txt";
-    printUniqueWords1(filename);
-    printUniqueWords2(filename);
-    printUniqueWords3(filename);
+    string filename = "mobydick.txt";
+    //printUniqueWords1(filename);
+    //printUniqueWords2(filename);
+    //printUniqueWords3(filename);
     printUniqueWords4(filename);
     return 0;
 }
@@ -86,12 +86,15 @@ void printUniqueWords4(string filename) {
     set<string> words;
     Tokenizer tokenizer(filename);
     while(tokenizer.hasNext()) {
-        words.insert(tokenizer.next());
+      string st = tokenizer.next();
+      if (find(words.begin(),words.end(),st) == words.end()) {
+        words.insert(st);
+      }
     }
     tokenizer.close();
     cout << "A total of " << words.size() << " words" << endl;
-    for (auto &x : words) {
-      cout << "the length of " << x << " is " << x.size() << endl;
-    }
+//    for (auto &x : words) {
+//      cout << "the length of " << x << " is " << x.size() << endl;
+//    }
 }
 //-------------------------------------------------------

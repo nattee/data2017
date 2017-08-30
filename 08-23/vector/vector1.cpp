@@ -14,6 +14,10 @@ int main() {
     cout << i << ": " <<  v1[i] << endl;
   }
 
+  cout << "this is v2 BEFORE" << endl;
+  for (size_t i = 0;i < v2.size();i++) {
+    cout << i << ": " <<  v2[i] << endl;
+  }
   v2 = v1;
   v1[0] = 0;
   v1[1] = 1;

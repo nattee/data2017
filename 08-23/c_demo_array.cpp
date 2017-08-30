@@ -4,8 +4,6 @@
 using namespace std;
 
 int main() {
-  char tmp[] = "ABCDEF";
-  cout << tmp;
   int x;
   cin >> x;
   //this is a static array.
@@ -19,7 +17,5 @@ int main() {
   for (int i = 0;i < x;i++) {
     cout << i << ": " << a[i] << endl;
   }
-  cout << "wait...";
-  cin >> x;
 }
 
