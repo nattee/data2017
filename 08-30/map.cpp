@@ -24,6 +24,7 @@ int main() {
     cout << "The key is " << (*it).first << " the value is " << (*it).second << endl;
   }
 
+  return 0;
   // find
   string key = "asdf";
   map<string,string>::iterator it2 = m.find(key);

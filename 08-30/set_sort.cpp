@@ -23,6 +23,28 @@ int main() {
   //  by putting all data in s into a set and iterate
   //  every member in the set and put them back into the vector
 
+
+  // step 1, put everything in the vector into a aset
+  set<int> p;
+  for (size_t i = 0;i < s.size();i++) {
+    p.insert(s[i]);
+  }
+//  for (auto it = s.begin();it != s.end();it++) {
+//    p.insert(*it);
+//  }
+//  p.insert(s.begin(),s.end());
+
+  size_t tmp = s.size();
+  for (size_t i = 0;i < tmp;i++) {
+    s.erase(s.end()-1);
+  }
+  //s.clear();
+
+  for (auto it = p.begin(); it != p.end();it++) {
+    s.push_back(*it);
+  }
+
+
   for (auto it = s.begin();it != s.end();it++) {
     cout << *it << endl;
   }
