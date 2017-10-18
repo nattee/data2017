@@ -19,6 +19,13 @@ public:
     }
 };
 
+
+class BookComp {
+public:
+    bool operator()(const Book& b1, const Book& b2) const {
+        return b1.price < b2.price;
+    }
+};
 int main() {
     Book b1 = {"Cal", "???",120};
     Book b2 = {"DS", "OK", 30};
@@ -30,7 +37,7 @@ int main() {
     }
 
 
-    set<Book> s = {
+    set<Book,BookComp> s = {
       {"???", "???",120},
       {"DS", "OK", 20},
       {"DS", "Somchai", 20},

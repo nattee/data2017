@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <set>
+#include <map>
 
 using namespace std;
 
@@ -19,6 +20,13 @@ public:
     }
 };
 
+
+class BookComp {
+public:
+    bool operator()(const Book& b1, const Book& b2) const {
+        return b1.price < b2.price;
+    }
+};
 int main() {
     Book b1 = {"Cal", "???",120};
     Book b2 = {"DS", "OK", 30};
@@ -30,18 +38,19 @@ int main() {
     }
 
 
-    set<Book> s = {
-      {"???", "???",120},
-      {"DS", "OK", 20},
-      {"DS", "Somchai", 20},
-      {"???",  "Somchai",30} };
+    map<Book,bool,BookComp> s = {
+      {{"???", "???",120}, false} ,
+      {{"DS", "OK", 20}, true} ,
+      {{"DS", "Somchai", 20}, false} ,
+      {{"???",  "Somchai",30} ,true} };
     cout << s.count(b1) << "," << s.count(b2) << endl;
 
     for (auto x : s) {
       cout << "---- Book ----- " << endl;
-      cout << "name: " << x.name << endl;
-      cout << "author: " << x.author << endl;
-      cout << "price: " << x.price <<  endl;
+      cout << "name: " << x.first.name << endl;
+      cout << "author: " << x.first.author << endl;
+      cout << "price: " << x.first.price <<  endl;
+      cout << "bool: " << x.second <<  endl;
     
     }
     return 0;

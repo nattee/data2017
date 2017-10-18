@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <set>
+#include <map>
+#include <queue>
 
 using namespace std;
 
@@ -19,6 +21,13 @@ public:
     }
 };
 
+
+class BookComp {
+public:
+    bool operator()(const Book& b1, const Book& b2) const {
+        return b1.price < b2.price;
+    }
+};
 int main() {
     Book b1 = {"Cal", "???",120};
     Book b2 = {"DS", "OK", 30};
@@ -30,19 +39,19 @@ int main() {
     }
 
 
-    set<Book> s = {
-      {"???", "???",120},
-      {"DS", "OK", 20},
-      {"DS", "Somchai", 20},
-      {"???",  "Somchai",30} };
-    cout << s.count(b1) << "," << s.count(b2) << endl;
+    priority_queue<Book,vector<Book>,BookComp> s;
+    s.push( {"???", "???",120});
+    s.push(  {"DS", "OK", 20});
+    s.push( {"DS", "Somchai", 20});
+    s.push( {"???",  "Somchai",30});
+    //cout << s.count(b1) << "," << s.count(b2) << endl;
 
-    for (auto x : s) {
+    while (!s.empty()) {
+      auto x = s.top(); s.pop();
       cout << "---- Book ----- " << endl;
       cout << "name: " << x.name << endl;
       cout << "author: " << x.author << endl;
       cout << "price: " << x.price <<  endl;
-    
     }
     return 0;
 }
