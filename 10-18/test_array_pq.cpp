@@ -17,7 +17,6 @@ class ArrayPQ {
 
     void push(const T& value) {
       //write your code here
-      x.push_back(value);
     }
 };
 
