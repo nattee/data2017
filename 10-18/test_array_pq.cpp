@@ -5,6 +5,22 @@ using namespace std;
 //write your class here 
 //the class should be named "ArrayPQ"
 
+template <typename T>
+class ArrayPQ {
+  protected:
+    vector<T> x;
+  public:
+    size_t size() {return x.size(); }
+    bool empty() {return x.empty(); }
+    T top() {return x.back(); }
+    void pop() {x.pop_back(); }
+
+    void push(const T& value) {
+      //write your code here
+      x.push_back(value);
+    }
+};
+
 int main() {
 
   ArrayPQ<int> p;
