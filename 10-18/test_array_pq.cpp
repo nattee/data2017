@@ -28,7 +28,7 @@ int main() {
   p.push(5);
   p.push(3);
 
-  while (p.empty() != false) {
+  while (p.empty() == false) {
     cout << "Size = " << p.size() << " top = " << p.top() << endl;
     p.pop();
   }
