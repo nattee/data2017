@@ -17,6 +17,12 @@ class ArrayPQ {
 
     void push(const T& value) {
       //write your code here
+      for (size_t i = 0;i < size();i++) {
+        if (v[i] < value && v[i+1] > value) {
+          x.insert(x.begin() + i,value);
+          break;
+        }
+      }
     }
 };
 
